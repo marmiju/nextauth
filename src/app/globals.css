@@ -2,23 +2,24 @@
 
 
 @theme{
-  --color-header:var(--header);
+  --color-alter:var(--background);
+  --color-primary:var(--primary);
   --color-text:var(--text);
-  --color-container:var(--container)
+  --color-secondary:var(--secondary)
 }
 
 :root {
-  --background: #f0f0f0;
-  --header: #000;
+  --background: #ffffff;
+  --primary: #000;
   --text: #525252;
-  --container: #ffffff;
+  --secondary: #f0f0f0;
 }
 
 .dark {
-  --background: #0f0f0f;
-  --header: #fff;
+  --background: #000000;
+  --primary: #fff;
   --text: #b9b9b9;
-  --container: #383838;
+  --secondary: #0f0f0f;
 }
 
 body {

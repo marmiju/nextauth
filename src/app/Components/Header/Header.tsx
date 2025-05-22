@@ -3,8 +3,11 @@ import { NavMenu } from "./Shared/NavMenu";
 import { LogsIcon } from "lucide-react";
 import Link from "next/link";
 import { DarkTogle } from "./Shared/DarkTogle";
+import { getServerSession } from "next-auth";
+import LogOutButton from "./Shared/LogOutButton";
 
-export const Header = () => {
+export const Header = async () => {
+  const session = await getServerSession();
   return (
     <div className="text-text mt-6 items- max-w-[1280px] mx-auto grid grid-cols-6 md:grid-cols-12">
       <div className=" border">
@@ -15,8 +18,14 @@ export const Header = () => {
       <div className="col-span-10 flex justify-end space-x-4 items-center">
         <NavMenu />
         <DarkTogle />
-        <Link href={"/signin"}>SignIn</Link>
-        <Link href={"/signup"}>SignUp</Link>
+        {session ? (
+          <LogOutButton />
+        ) : (
+          <div>
+            <Link href={"/login"}>SignIn</Link>
+            <Link href={"/register"}>Register</Link>
+          </div>
+        )}
       </div>
     </div>
   );

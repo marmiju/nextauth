@@ -5,7 +5,11 @@ export const NavMenu = () => {
   return (
     <div>
       {navlink.map((nav, index) => {
-        return <button key={index}>{nav.name}</button>;
+        return (
+          <Link href={nav.path} key={index}>
+            {nav.name}
+          </Link>
+        );
       })}
     </div>
   );
